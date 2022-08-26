@@ -1,10 +1,13 @@
 <h3>delete page</h3>
 
-<p>deleting "{{ item }}" ?</p>
+<p>deleting "{{ book }}" ?</p>
 <a href="{% url 'list' %}"> no</a>
 
-<form action="" method="POST">
+
+<form method="POST" action="{% url 'delete' book.id %}">
     {% csrf_token %}
-    
-    <input type="submit" name="confirm">
+
+    <p>Are you sure you want to delete "{{ book }}"?</p>
+     
+    <input type="submit" value="Confirm">
 </form>

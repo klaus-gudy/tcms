@@ -1,47 +1,43 @@
 from django.shortcuts import render ,  redirect
 from django.http import HttpResponse
 
+from django.views.generic import ListView, CreateView, DetailView, UpdateView,DeleteView
+
 from .models import *
 from .forms import *
 
-# Create your views here.
-def index(request):
-    book = Book.objects.all()
-
-    form = BookForm()
-
-    if request.method == 'POST':
-        form = BookForm(request.POST)
-        if form.is_valid():
-            form.save()
-        
-        return redirect('/')
-
-    context = {'books': book,  'form':form}
-    return render(request, 'base/list.html', context)
 
 
-def update(request, pk):
-    book  =  Book.objects.get(id=pk)
+class BookListView(ListView): 
+    model = Book
+    template_name ='base/list.html'
+    context_object_name = 'books'
+    queryset = Book.objects.all()
 
-    form =  BookForm(instance=book)
 
-    if request.method == 'POST':
-        form = BookForm(request.POST, instance=book)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
+class BookUpdateView(UpdateView):
+    model = Book
+    template_name = 'base/update.html' 
+    context_object_name = 'books'
+    fields = ['name']
+    success_url = '/books'
         
         
-    context = {'form':form}
-    return render(request, 'base/update.html', context)
+class BookDetailView(DetailView):
+    model = Book
+    template_name = 'base/detail.html' 
+    context_object_name = 'books'
+    fields = ['name']
 
-def delete(request, pk):
-    item = Book.objects.get(id= pk)
+class BookCreateView(CreateView): 
+    model = Book
+    template_name = 'base/create.html'
+    context_object_name = 'books'
+    fields = ['name']
+    success_url = '/books'
 
-    if request.method == 'POST':
-        item.delete()
-        return redirect('/')
-
-    context = {'item':item}
-    return render(request, 'base/delete.html', context)
+class BookDeleteView(DeleteView): 
+    model = Book
+    template_name = 'base/delete.html'
+    context_object_name = 'book'
+    success_url = '/books'

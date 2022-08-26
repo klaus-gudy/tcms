@@ -1,10 +1,6 @@
 <h3>my book </h3>
 
-<form action="/" method="POST">
-    {% csrf_token %}
-    {{form.name}}
-    <input type="submit" name="create">
-</form>
+<a href="{% url 'create' %}">Add new book</a>
 
 {% for book in books %}
 
@@ -12,8 +8,12 @@
     <p>
         {{ book }} 
 
+        <a href="{% url 'detail' book.id %}"> view</a>
+
         <a href="{% url 'update' book.id %}"> edit</a>
+
         <a href="{% url 'delete' book.id %}"> delete</a>
+
     </p>
 </div>
 

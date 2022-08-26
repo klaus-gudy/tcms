@@ -1,0 +1,7 @@
+<h3>create new item</h3>
+
+<form action="{% url 'create' %}" method="POST">
+    {% csrf_token %}
+    {{form.name}}
+    <input type="submit" name="create">
+</form>
