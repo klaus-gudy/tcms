@@ -1,0 +1,13 @@
+<h3>delete customer</h3>
+
+<p>deleting "{{ customer }}" ?</p>
+<a href="{% url 'customer_list' %}"> no</a>
+
+
+<form method="POST" action="{% url 'customer_delete' customer.account_number %}">
+    {% csrf_token %}
+
+    <p>Are you sure you want to delete "{{ customer }}"?</p>
+     
+    <input type="submit" value="Confirm">
+</form>

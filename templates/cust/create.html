@@ -1,0 +1,7 @@
+<h3>create new customer</h3>
+
+<form action="{% url 'customer_create' %}" method="POST">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" name="customer_create">
+</form>

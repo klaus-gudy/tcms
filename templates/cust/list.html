@@ -1,0 +1,20 @@
+<h3>My Customers </h3>
+
+<a href="{% url 'customer_create' %}">Add new customer</a>
+
+{% for customer in customers %}
+
+<div>
+    <p>
+        {{ customer.account_name }} 
+
+        <a href="{% url 'customer_detail' customer.account_number %}"> view</a>
+
+        <a href="{% url 'customer_update' customer.account_number %}"> edit</a>
+
+        <a href="{% url 'customer_delete' customer.account_number %}"> delete</a>
+
+    </p>
+</div>
+
+{% endfor %}
