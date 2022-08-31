@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <h3>my book </h3>
 
 <a href="{% url 'create' %}">Add new book</a>
@@ -18,3 +21,4 @@
 </div>
 
 {% endfor %}
+{% endblock   %}

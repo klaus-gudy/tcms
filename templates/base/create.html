@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <h3>create new item</h3>
 
 <form action="{% url 'create' %}" method="POST">
@@ -5,3 +8,5 @@
     {{form.name}}
     <input type="submit" name="create">
 </form>
+
+{% endblock   %}
