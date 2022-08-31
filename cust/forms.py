@@ -28,7 +28,9 @@ class CustomerForm(forms.ModelForm):
             Row(
                 Div('account_number', css_class='col-md-6'),
                 Div('account_name', css_class='col-md-6'),
-                Div('address', css_class='col-md-12')
+                Div('address', css_class='col-md-12'),
+                Div('age', css_class='col-md-6'),
+                Div('acc_type', css_class='col-md-6'),
             ),
             ButtonHolder(
                 Submit('submit', 'save', css_class='btn btn-success', css_id='btn-save-customer'),

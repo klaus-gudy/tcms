@@ -13,11 +13,9 @@ class Customer(models.Model):
 
     account_number = models.IntegerField(unique=True, primary_key=True)
     account_name = models.CharField(max_length=255)
-    location = models.CharField(max_length=255)
-    email = models.EmailField()
+    address = models.CharField(max_length=255)
     age = models.PositiveIntegerField(null=True, blank=True)
     acc_type = models.CharField(max_length=100, choices=ACCOUNTS,null=True, blank=True)
-    created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['account_name']
