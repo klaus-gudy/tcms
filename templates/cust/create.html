@@ -1,13 +1,10 @@
-{% extends 'base/base.html' %}
+{% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
 {% block content %}
 
 <h3>create new customer</h3>
 
-<form action="{% url 'customer_create' %}" method="POST">
-    {% csrf_token %}
-    {{  form|crispy }}
-</form>
+    {% crispy form %}
 
 {% endblock   %}

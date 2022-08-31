@@ -26,10 +26,9 @@ class CustomerDetailView(DetailView):
     fields = ['account_number','account_name','address']
 
 class CustomerCreateView(CreateView): 
-    model = Customer
+    form_class = CustomerForm
     template_name = 'cust/create.html'
     context_object_name = 'customer'
-    fields = ['account_number','account_name','address']
     success_url = '/customer'
 
 class CustomerDeleteView(DeleteView): 
