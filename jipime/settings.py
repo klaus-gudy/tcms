@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'cust',
+    'depo',
 
     'crispy_forms',
     'crispy_bootstrap5',
