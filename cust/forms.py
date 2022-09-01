@@ -21,7 +21,6 @@ class CustomerForm(forms.ModelForm):
         self.helper.form_class = 'customer-create-form'
         self.helper.use_custom_control = True
         self.helper.form_tag = True
-        self.helper.form_action = reverse_lazy('customer_create')
         self.helper.form_method = 'POST'
 
         self.helper.layout = Layout(

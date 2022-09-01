@@ -4,10 +4,8 @@
 {% block content %}
 <h3>update customer</h3>
 
-<form action="" method="POST">
-    {% csrf_token %}
+
     {% crispy form %}
-    <input type="submit" name="update">
-</form>
+
 
 {% endblock   %}

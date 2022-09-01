@@ -13,11 +13,11 @@ class CustomerListView(ListView):
     queryset = Customer.objects.all()
 
 class CustomerUpdateView(UpdateView):
-    model = Customer
-    template_name = 'cust/update.html' 
+    form_class = CustomerForm
+    template_name = 'cust/update.html'
     context_object_name = 'customer'
-    fields = ['account_number','account_name','address','age','acc_type']
     success_url = '/customer'
+    model = Customer
 
 class CustomerDetailView(DetailView):
     model = Customer
