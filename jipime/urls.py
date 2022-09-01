@@ -21,6 +21,7 @@ urlpatterns = [
     path('base/', include('base.urls') ),
     path('api/', include('api.urls') ),
     path('', include('cust.urls') ),
+    path('trans/', include('depo.urls') ),
 ]
 
 # django.contrib.auth.urls

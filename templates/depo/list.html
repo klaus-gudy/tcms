@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>transaction History </h3>
+
+
+{% for deposit in deposits %}
+
+<div>
+    <p>
+        Token:{{ deposit.token }} 
+
+    </p>
+</div>
+
+{% endfor %}
+
+{% endblock   %}
