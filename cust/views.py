@@ -4,6 +4,8 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView,De
 from .models import *
 from .forms import *
 
+from django.contrib.messages.views import SuccessMessageMixin
+
 # Create your views here.
 
 class CustomerListView(ListView): 
@@ -12,12 +14,14 @@ class CustomerListView(ListView):
     context_object_name = 'customers'
     queryset = Customer.objects.all()
 
-class CustomerUpdateView(UpdateView):
+class CustomerUpdateView(SuccessMessageMixin,UpdateView):
     form_class = CustomerForm
+    model = Customer
     template_name = 'cust/update.html'
     context_object_name = 'customer'
-    success_url = '/customer'
-    model = Customer
+    success_url = reverse_lazy('customer_list')
+    success_message = "user has been updated"
+    
 
 class CustomerDetailView(DetailView):
     model = Customer
@@ -25,14 +29,16 @@ class CustomerDetailView(DetailView):
     context_object_name = 'customer'
     fields = ['account_number','account_name','address']
 
-class CustomerCreateView(CreateView): 
+class CustomerCreateView(SuccessMessageMixin, CreateView): 
     form_class = CustomerForm
     template_name = 'cust/create.html'
     context_object_name = 'customer'
-    success_url = '/customer'
+    success_url = reverse_lazy('customer_list')
+    success_message = "added a user"
 
-class CustomerDeleteView(DeleteView): 
+class CustomerDeleteView(SuccessMessageMixin, DeleteView): 
     model = Customer
     template_name = 'cust/delete.html'
     context_object_name = 'customer'
-    success_url = '/customer'
+    success_url = reverse_lazy('customer_list')
+    success_message = "User has been deleted"
