@@ -22,8 +22,10 @@ urlpatterns = [
     path('api/v1/', include('api.urls') ),
     path('', include('cust.urls') ),
     path('trans/', include('depo.urls') ),
+    path('accounts/', include('accounts.urls') ),
 
     path('api-auth/', include('rest_framework.urls') ),
+    path('auth/', include('django.contrib.auth.urls') ),
 ]
 
 # django.contrib.auth.urls
