@@ -1,5 +1,5 @@
 # tcms
-This project involves the initial setup needed when using django framework
+
 
 ## Installation and Usage
 [Step 1]:clone the repository to your local machine
