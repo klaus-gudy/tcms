@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 
-# Create your views here.
-def index(request):
-    return render(request, 'accounts/login.html')
 
+from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 
-def register(request):
-    return render(request, 'accounts/login.html')
+from .forms import UserRegisterForm
+
+class Signup(CreateView):
+    form_class = UserRegisterForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/signup.html'

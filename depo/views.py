@@ -5,6 +5,8 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView,De
 from .models import *
 from .forms import *
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 # Create your views here.
 class DepositListView(ListView): 
     model = Deposit
@@ -18,8 +20,12 @@ class GenerateToken(DetailView):
     context_object_name = 'deposit'
     fields = ['token']
 
-class DepositView(CreateView): 
+class DepositView(LoginRequiredMixin,CreateView): 
     form_class = DepositForm
     template_name = 'depo/deposit.html'
     context_object_name = 'deposit'
     success_url = '/trans/history'
+
+    def form_valid(self, form):
+        form.instance.my_account = self.request.user
+        return super(DepositView, self).form_valid(form)

@@ -17,10 +17,10 @@ class Customer(models.Model):
     age = models.PositiveIntegerField(null=True, blank=True)
     acc_type = models.CharField(max_length=100, choices=ACCOUNTS,null=True, blank=True)
 
-    class Meta:
-        ordering = ['account_name']
-        verbose_name = 'Customer'
-        verbose_name_plural = 'Customers'
+    # class Meta:
+    #     ordering = ['account_name']
+    #     verbose_name = 'Customer'
+    #     verbose_name_plural = 'Customers'
 
     def __str__(self):
         return self.account_name

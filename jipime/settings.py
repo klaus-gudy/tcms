@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'accounts.User'
+# AUTH_USER_MODEL = 'accounts.User'
 
 
 # Application definition
@@ -142,5 +142,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 CRISPY_ALLOWED_TEMPLATE_PACKS  = 'bootstrap5'
 
-LOGIN_REDIRECT_URL ='accounts/index/'
-LOGOUT_REDIRECT_URL ='accounts/index/'
+
+LOGIN_REDIRECT_URL = 'customer_list'
+LOGOUT_REDIRECT_URL = 'login'
+
