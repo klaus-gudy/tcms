@@ -27,5 +27,5 @@ class DepositView(LoginRequiredMixin,CreateView):
     success_url = '/trans/history'
 
     def form_valid(self, form):
-        form.instance.customer = self.request.user
+        form.instance.my_account = self.request.user
         return super(DepositView, self).form_valid(form)
