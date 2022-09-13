@@ -27,7 +27,6 @@ class DepositForm(forms.ModelForm):
 
             Column(
                     Div('amount', css_class='col-md-6'),
-                    Div('my_account', css_class='col-md-6'),
             ),
 
             ButtonHolder(
