@@ -28,8 +28,6 @@ urlpatterns = [
     path('api/v1/', include('api.urls') ),
     path('api-auth/', include('rest_framework.urls') ),
 
-    path('auth/', include('django.contrib.auth.urls') ),
-]
 
 
     path('accounts/', include('accounts.urls')),
